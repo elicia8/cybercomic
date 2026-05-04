@@ -51,7 +51,7 @@ export default function Course() {
     <Layout>
       <div className="flex flex-col gap-6">
         {datas.map((data) => (
-          <Card size="sm" className="mx-auto w-full max-w-sm">
+          <Card size="sm" className="mx-auto w-full max-w-sm" key={data.id}>
             <CardHeader>
               <CardTitle>
                 Bab {data.id}: {data.title}

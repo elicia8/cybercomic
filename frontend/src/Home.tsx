@@ -7,6 +7,7 @@ export default function Home() {
   return (
     <Layout>
       <h1>CyberComic</h1>
+      <h2>Selamat datang di CyberComic, dimana kami akan membantu Anda mempelajari Keamanan Siber dalam bentuk komik!</h2>
       <Link to="/course">
         <Button variant="outline" className="cursor-pointer">
           Course Saya
