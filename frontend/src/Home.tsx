@@ -1,12 +1,9 @@
 import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
 import Layout from "./Layout";
-import { Sidebar } from "./components/ui/sidebar";
-
 export default function Home() {
   return (
     <Layout>
-      <Sidebar/>
       <h1>CyberComic</h1>
       <h2>Selamat datang di CyberComic, dimana kami akan membantu Anda mempelajari Keamanan Siber dalam bentuk komik!</h2>
       <Link to="/courses">
