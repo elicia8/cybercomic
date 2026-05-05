@@ -1,6 +1,11 @@
 import komik1 from "../assets/komik_keamanan_siber.svg";
-
-export const datas = [
+interface Course {
+  id: number;
+  title: string;
+  description: string;
+  image?: string;
+}
+export const datas: Course[] = [
   {
     id: 1,
     title: "Pengantar Keamanan Siber",

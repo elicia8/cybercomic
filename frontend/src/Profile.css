@@ -1,0 +1,10 @@
+.choose:hover {
+  background-color: #16171d;
+  color: white;
+}
+.profile:hover {
+  border: 2px solid forestgreen;
+}
+.active {
+  border: 2px solid forestgreen;
+}

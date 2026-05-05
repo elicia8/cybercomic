@@ -1,0 +1,9 @@
+.navBg {
+  background-color: #1e2029;
+}
+.hoverBg:hover {
+    background-color: #16171d;
+}
+.text-dark {
+    color: #16171d;
+}

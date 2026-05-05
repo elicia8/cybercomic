@@ -10,7 +10,7 @@ export default function Course() {
       <div>
         <h1>Bab {id}: {course?.title}</h1>
         <h3>{course?.description}</h3>
-        <img src={course?.image} alt="" />
+        <img src={course?.image} alt="panel komik bab 1" />
       </div>
     </Layout>
   );
