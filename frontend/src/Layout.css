@@ -1,6 +1,5 @@
 .navBg {
-  --sidebar-foreground: 0 0% 100%;
-  --sidebar-accent-foreground: 0 0% 100%;
+  background-color: #1e2029;
 }
 .hoverBg:hover {
   background-color: #16171d;

@@ -23,9 +23,9 @@ export default function Layout({ children }: { children: React.ReactNode }) {
               <SidebarGroup>
                 <SidebarGroupContent>
                   <SidebarMenu>
-                    <SidebarMenuItem className="z-50">
-                      <SidebarMenuButton asChild className="text-white">
-                        <Link to="/profile" className="hover:text-white hoverBg z-50">
+                    <SidebarMenuItem>
+                      <SidebarMenuButton asChild>
+                        <Link to="/profile" className="hover:text-white hoverBg">
                           Profile
                         </Link>
                       </SidebarMenuButton>
