@@ -18,14 +18,14 @@ export default function Layout({ children }: { children: React.ReactNode }) {
     <>
       <SidebarProvider>
         <div className="flex min-h-screen w-full">
-          <Sidebar className="navBg z-0" collapsible="offcanvas">
+          <Sidebar className="navBg z-40" collapsible="offcanvas">
             <SidebarContent>
               <SidebarGroup>
                 <SidebarGroupContent>
                   <SidebarMenu>
                     <SidebarMenuItem className="z-50">
                       <SidebarMenuButton asChild>
-                        <Link to="/profile" className="hover:text-white hoverBg">
+                        <Link to="/profile" className="hover:text-white hoverBg z-50">
                           Profile
                         </Link>
                       </SidebarMenuButton>
