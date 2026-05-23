@@ -1,9 +1,12 @@
 .navBg {
-  background-color: #1e2029;
+  background-color: #0D1117;
 }
 .hoverBg:hover {
   background-color: #16171d;
 }
 .text-dark {
   color: #16171d;
+}
+.profpic {
+  cursor: pointer;
 }

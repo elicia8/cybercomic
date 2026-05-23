@@ -1,0 +1,13 @@
+section {
+    padding: 3rem 4rem;
+    /* border: 1px solid #4ade80; */
+    border-bottom: 1px solid #1A2228;
+}
+#s1, #s3{
+    background-color: #0A0A0F;
+    z-index: 16;
+}
+#s2{
+    background-color: #07080D;
+    z-index: 16;
+}

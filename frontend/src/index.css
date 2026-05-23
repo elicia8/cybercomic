@@ -1,7 +1,9 @@
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@700;800&family=Space+Grotesk:wght@400;500;600;700&family=Share+Tech+Mono&display=swap');
 @import "tailwindcss";
 @import "tw-animate-css";
 @import "shadcn/tailwind.css";
 @import "@fontsource-variable/geist";
+
 
 /* @custom-variant dark (&:is(.dark *)); */
 :root {
@@ -15,13 +17,22 @@
   --accent-border: rgba(170, 59, 255, 0.5);
   --social-bg: rgba(244, 243, 236, 0.5);
   --shadow:
-    rgba(0, 0, 0, 0.1) 0 10px 15px -3px, rgba(0, 0, 0, 0.05) 0 4px 6px -2px;
-
-  --sans: system-ui, 'Segoe UI', Roboto, sans-serif;
+  rgba(0, 0, 0, 0.1) 0 10px 15px -3px, rgba(0, 0, 0, 0.05) 0 4px 6px -2`x;
+  
+  /* --sans: system-ui, 'Segoe UI', Roboto, sans-serif;
   --heading: system-ui, 'Segoe UI', Roboto, sans-serif;
-  --mono: ui-monospace, Consolas, monospace;
+  --mono: ui-monospace, Consolas, monospace; */
+  --heading: 'Orbitron', sans-serif;
+  --body: 'Space Grotesk', sans-serif;
+  --mono: 'Share Tech Mono', monospace;
 
-  font: 18px/145% var(--sans);
+  --fontsize-large: 4rem;
+  --fontsize-medium: 2rem;
+  --fontsize-small: 1.1rem;
+
+  --green: #3ECF6E;
+  
+  font: 18px/145% var(--body);
   letter-spacing: 0.18px;
   color-scheme: light dark;
   color: var(--text);
@@ -29,17 +40,21 @@
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-
+  
   @media (max-width: 1024px) {
     font-size: 16px;
   }
-
+  .green {
+    color: var(--green);
+  }
+  
+  
   --background: oklch(1 0 0);
-
+  
   --foreground: oklch(0.145 0 0);
 
   --card: oklch(1 0 0);
-
+  
   --card-foreground: oklch(0.145 0 0);
 
   --popover: oklch(1 0 0);
@@ -99,7 +114,7 @@
   :root {
     --text: #9ca3af;
     --text-h: #f3f4f6;
-    --bg: #16171d;
+    --bg: transparent;
     --border: #2e303a;
     --code-bg: #1f2028;
     --accent: #c084fc;
@@ -108,6 +123,8 @@
     --social-bg: rgba(47, 48, 58, 0.5);
     --shadow:
       rgba(0, 0, 0, 0.4) 0 10px 15px -3px, rgba(0, 0, 0, 0.25) 0 4px 6px -2px;
+    --card-bg: #0D1117;
+    --card-border: #1A2228;
   }
 
   #social .button-icon {
@@ -129,6 +146,7 @@
 body {
   margin: 0;
   background: var(--bg);
+  font-family: var(--body);
 
 }
 
@@ -140,24 +158,25 @@ h2 {
 }
 
 h1 {
-  font-size: 56px;
+  font-size: var(--fontsize-large);
   letter-spacing: -1.68px;
   margin: 32px 0;
   @media (max-width: 1024px) {
-    font-size: 36px;
+    font-size: var(--fontsize-medium);
     margin: 20px 0;
   }
 }
 h2 {
-  font-size: 24px;
+  font-size: var(--fontsize-medium);
   line-height: 118%;
   letter-spacing: -0.24px;
   margin: 0 0 8px;
   @media (max-width: 1024px) {
-    font-size: 20px;
+    font-size: var(--fontsize-medium);
   }
 }
 p {
+  font-size: var(--fontsize-small);
   margin: 0;
 }
 
@@ -170,7 +189,7 @@ code,
 }
 
 code {
-  font-size: 15px;
+  font-size: 1.5rem;
   line-height: 135%;
   padding: 4px 8px;
   background: var(--code-bg);

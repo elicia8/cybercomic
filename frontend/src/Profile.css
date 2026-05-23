@@ -1,6 +1,9 @@
-.choose:hover {
+.choose {
   background-color: #16171d;
   color: white;
+}
+.choose:hover {
+  background-color: #1e2029;
 }
 .profile:hover {
   border: 2px solid forestgreen;
