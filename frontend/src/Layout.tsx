@@ -49,7 +49,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
                 <Navbar />
                 <div className="profpic flex items-center gap-4 px-10">
                   <Link to="/login">Login</Link>
-                  <Link to="/login">Register</Link>
+                  <Link to="/register">Register</Link>
                   <img src={profilePhoto} alt="Profile" className="w-10 h-10 rounded-full" onClick={() => navigate("/profile")} />
                 </div>
               </div>
