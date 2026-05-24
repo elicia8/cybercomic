@@ -7,6 +7,7 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { useNavigate } from "react-router-dom";
 
 export default function Register() {
+  const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState("");
@@ -32,7 +33,15 @@ export default function Register() {
 
     setLoading(false);
 
-    navigate("/login");
+    const { data: userData } = await supabase.auth.getUser();
+    const user = userData.user;
+
+    await supabase.from("users").insert({
+      id: user?.id,
+      name: name,
+    });
+
+    navigate("/");
   }
 
   return (
@@ -43,6 +52,15 @@ export default function Register() {
 
       <CardContent>
         <form onSubmit={handleSubmit} className="flex flex-col gap-4">
+          <div className="grid gap-2">
+            <Label>Name</Label>
+            <Input
+              type="text"
+              value={name}
+              onChange={(e) => setName(e.target.value)}
+              placeholder="John Doe"
+            />
+          </div>
           <div className="grid gap-2">
             <Label>Email</Label>
             <Input
@@ -63,9 +81,7 @@ export default function Register() {
             />
           </div>
 
-          {error && (
-            <p className="text-sm text-red-500">{error}</p>
-          )}
+          {error && <p className="text-sm text-red-500">{error}</p>}
 
           <Button type="submit" disabled={loading}>
             {loading ? "Creating account..." : "Register"}

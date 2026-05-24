@@ -13,9 +13,23 @@ import {
   SidebarMenuButton,
 } from "./components/ui/sidebar";
 import { Link, useNavigate } from "react-router-dom";
-import { useProfileStore } from "./store/useProfileStore";
+import { getUserProfile } from "./services/getUserProfile";
+import { userStore } from "./store/userStore";
+import { useEffect, useState } from "react";
+import type { UserData } from "./types/userData";
+import { profiles } from "./data/profile";
 export default function Layout({ children }: { children: React.ReactNode }) {
-  const { profilePhoto } = useProfileStore();
+  const [userData, setUserData] = useState<UserData | null>(null);
+  useEffect(() => {
+    async function fetchUserProfile() {
+      await getUserProfile();
+      const id = userStore.getState().id;
+      const name = userStore.getState().name;
+      const profile_url = userStore.getState().profile_url;
+      setUserData({ id, name, profile_url });
+    }
+    fetchUserProfile();
+  }, []);
   const navigate = useNavigate();
   return (
     <>
@@ -47,10 +61,16 @@ export default function Layout({ children }: { children: React.ReactNode }) {
               <SidebarTrigger className="cursor-pointer" />
               <div className="flex justify-between w-full">
                 <Navbar />
+                {/* <h3>halo{userData?.name ? ` ${userData.name}` : ""}</h3> */}
                 <div className="profpic flex items-center gap-4 px-10">
                   <Link to="/login">Login</Link>
                   <Link to="/register">Register</Link>
-                  <img src={profilePhoto} alt="Profile" className="w-10 h-10 rounded-full" onClick={() => navigate("/profile")} />
+                  <img
+                    src={userData?.profile_url || profiles[0].image}
+                    alt="Profile"
+                    className="w-10 h-10 rounded-full"
+                    onClick={() => navigate("/profile")}
+                  />
                 </div>
               </div>
             </header>
