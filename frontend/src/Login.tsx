@@ -4,7 +4,8 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+import Layout from "./Layout";
 
 export default function Login() {
   const [email, setEmail] = useState("");
@@ -35,41 +36,54 @@ export default function Login() {
   }
 
   return (
-    <Card className="w-full max-w-sm">
-      <CardHeader>
-        <CardTitle>Login</CardTitle>
-      </CardHeader>
-
-      <CardContent>
-        <form onSubmit={handleSubmit} className="flex flex-col gap-4">
-          <div className="grid gap-2">
-            <Label>Email</Label>
-            <Input
-              type="email"
-              value={email}
-              onChange={(e) => setEmail(e.target.value)}
-              placeholder="m@example.com"
-            />
-          </div>
-
-          <div className="grid gap-2">
-            <Label>Password</Label>
-            <Input
-              type="password"
-              value={password}
-              onChange={(e) => setPassword(e.target.value)}
-            />
-          </div>
-
-          {error && (
-            <p className="text-sm text-red-500">{error}</p>
-          )}
-
-          <Button type="submit" disabled={loading}>
-            {loading ? "Loading..." : "Login"}
-          </Button>
-        </form>
-      </CardContent>
-    </Card>
+    <Layout>
+      <div className="flex justify-center items-center h-[calc(100vh-4rem)]">
+        <Card className="w-[40%] relative flex justify-center bg-[var(--bg-secondary)] p-4">
+          <CardHeader>
+            <CardTitle className="keania large">Login</CardTitle>
+          </CardHeader>
+          <CardContent>
+            <form
+              onSubmit={handleSubmit}
+              className="flex flex-col gap-4 items-center"
+            >
+              <div className="grid gap-2 w-full">
+                <Label className="mono medium">Email</Label>
+                <Input
+                  type="email"
+                  value={email}
+                  onChange={(e) => setEmail(e.target.value)}
+                  placeholder="m@example.com"
+                  className="mono small btn"
+                />
+              </div>
+              <div className="grid gap-2 w-full">
+                <Label className="mono medium">Password</Label>
+                <Input
+                  type="password"
+                  value={password}
+                  onChange={(e) => setPassword(e.target.value)}
+                  className="mono small btn"
+                />
+              </div>
+              {error && <p className="text-sm text-red-500">{error}</p>}
+              <Button
+                type="submit"
+                disabled={loading}
+                className="btn small w-[50%] mt-4"
+              >
+                {loading ? "Loading..." : "Submit"}
+              </Button>
+              <div className="flex flex-col">
+                <p className="xsmall">Don't have an account yet?</p>
+                <Link to="/register" className="small underline">
+                  Sign Up Now!
+                </Link>
+              </div>
+            </form>
+          </CardContent>
+        </Card>
+      </div>
+    </Layout>
   );
 }

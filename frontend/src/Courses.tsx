@@ -14,20 +14,18 @@ export default function Courses() {
   const navigate = useNavigate();
   return (
     <Layout>
-      <div className="flex flex-col gap-6">
+      <div className="flex flex-col gap-6 relative">
         {datas.map((data) => (
-          <Card size="sm" className="mx-auto w-full max-w-sm" key={data.id}>
+          <Card size="sm" className="mx-auto w-full max-w-sm bg-[var(--bg-secondary)]" key={data.id}>
             <CardHeader>
-              <CardTitle>
+              <CardTitle className="keania large">
                 Bab {data.id}: {data.title}
               </CardTitle>
               <CardDescription>{data.description}</CardDescription>
             </CardHeader>
-            <CardFooter>
+            <CardFooter className="flex items-center justify-center">
               <Button
-                variant="outline"
-                size="sm"
-                className="w-full cursor-pointer"
+                className="btn cursor-pointer"
                 onClick={() => navigate(`/course/${data.id}`)}
               >
                 Mulai Bab {data.id}

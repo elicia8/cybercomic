@@ -7,9 +7,9 @@ export default function Course() {
   const course = datas.find((data) => data.id === idInt);
   return (
     <Layout>
-      <div>
-        <h1>Bab {id}: {course?.title}</h1>
-        <h3>{course?.description}</h3>
+      <div className="relative flex flex-col gap-4">
+        <h1 className="large">Bab {id}: {course?.title}</h1>
+        <h3 className="medium">{course?.description}</h3>
         <img src={course?.image} alt="panel komik bab 1" />
       </div>
     </Layout>

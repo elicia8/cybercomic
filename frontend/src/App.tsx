@@ -5,6 +5,8 @@ import Course from "./Course";
 import Profile from "./Profile";
 import Login from "./Login";
 import Register from "./Register";
+import Tes from "./Tes";
+import Welcome from "./Welcome";
 export default function App() {
   return (
     <BrowserRouter>
@@ -15,6 +17,8 @@ export default function App() {
         <Route path="/profile" element={<Profile />} />
         <Route path="/login" element={<Login />} />
         <Route path="/register" element={<Register />} />
+        <Route path="/tes" element={<Tes />} />
+        <Route path="/welcome" element={<Welcome />} />
       </Routes>
     </BrowserRouter>
   );

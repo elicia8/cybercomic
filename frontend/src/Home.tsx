@@ -1,57 +1,18 @@
-import { Button } from "@/components/ui/button";
-import { Link } from "react-router-dom";
 import Layout from "./Layout";
-import { MoveUpRight } from "lucide-react";
-import "./Home.css";
-import { whyCyberComics } from "./data/whyCyberComic";
-import {
-  Card,
-  CardContent,
-  CardHeader,
-  CardTitle,
-} from "./components/ui/card";
+import { Link } from "react-router-dom";
 export default function Home() {
   return (
     <Layout>
-      <section className="flex flex-col text-left gap-3" id="s1">
-        <h1>Cyber<span className="text-[var(--green)]">Comic</span></h1>
-        <h2 className="green">LEARN SECURITY. READ COMICS.</h2>
-        <p>
-          Platform pembelajaran <span className="font-bold text-[var(--green)]">Cyber Security Fundamental</span> pertama yang
-          menggunakan pendekatan komik. Belajar lebih intuitif, lebih seru, dan
-          lebih mudah diingat.
+      <div className="relative h-[calc(100vh-4rem)] flex flex-col justify-center items-center gap-20">
+        <h1 className="xlarge font-bold">CyberComic</h1>
+        <p className="large">
+          Jadilah Pahlawan <span className="font-bold">DIGITAL</span> di Dunia{" "}
+          <span className="font-bold">NYATA</span>
         </p>
-        <div className="flex gap-3">
-          <Link to="/courses">
-            <Button variant="outline" className="cursor-pointer">
-              Mulai Belajar
-              <span>
-                <MoveUpRight />
-              </span>
-            </Button>
-          </Link>
-          <Link to="/">
-            <Button variant="outline" className="cursor-pointer">
-              Lihat Silabus
-            </Button>
-          </Link>
-        </div>
-      </section>
-      <section className="text-left flex flex-col gap-4" id="s2">
-        <h2>Kenapa Cyber<span className="text-[var(--green)]">Comic?</span></h2>
-        <div className="flex gap-4">
-          {whyCyberComics.map((data) => (
-            <Card key={data.title} className="px-3 py-6">
-              <CardHeader>
-                <CardTitle className="font-bold text-lg green">{data.title}</CardTitle>
-              </CardHeader>
-              <CardContent>
-                <p>{data.description}</p>
-              </CardContent>
-            </Card>
-          ))}
-        </div>
-      </section>
+        <Link to="/welcome" className="btn w-max underline medium">
+          Next &gt;&gt;&gt;
+        </Link>
+      </div>
     </Layout>
   );
 }

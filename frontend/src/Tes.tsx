@@ -15,8 +15,6 @@ import type { UserData } from "./types/userData";
 import { profiles } from "./data/profile";
 import { getUserProfile } from "./services/getUserProfile";
 import { userStore } from "./store/userStore";
-import maskot from "./assets/maskot.png";
-import { supabase } from "./lib/supabase";
 const navItems = [
   { name: "Main Menu", path: "/" },
   { name: "Log In", path: "/login" },
@@ -28,7 +26,7 @@ const navItems = [
   { name: "Our Services", path: "/services" },
 ];
 
-export default function Layout({ children }: { children: React.ReactNode }) {
+export default function Tes() {
   const [userData, setUserData] = useState<UserData | null>(null);
   useEffect(() => {
     async function fetchUserProfile() {
@@ -36,20 +34,15 @@ export default function Layout({ children }: { children: React.ReactNode }) {
       const id = userStore.getState().id;
       const name = userStore.getState().name;
       const profile_url = userStore.getState().profile_url;
-      // console.log("Fetched user profile:", { id, name, profile_url });
+      console.log("Fetched user profile:", { id, name, profile_url });
       setUserData({ id, name, profile_url });
     }
     fetchUserProfile();
   }, []);
   const navigate = useNavigate();
-  async function handleLogout() {
-    await supabase.auth.signOut();
-    setUserData(null);
-    navigate("/login");
-  }
 
   return (
-    <div className="flex flex-col gap-4">
+    <div className="flex flex-col gap-4 p-4">
       <div className="flex justify-end items-center gap-4">
         <div className="flex flex-col text-right">
           <h2>{userData ? userData.name : "Guest"}</h2>
@@ -63,54 +56,41 @@ export default function Layout({ children }: { children: React.ReactNode }) {
         />
         <Sheet>
           <SheetTrigger asChild>
-            <Button className="cursor-pointer mr-4">
+            <Button className="cursor-pointer px-0">
               <Menu />
             </Button>
           </SheetTrigger>
-          <SheetContent
-            className="bg-[var(--bg-secondary)] border-l-[3rem] border-[var(--accent)]
-  shadow-[0_0_30px_var(--accent)]"
-          >
+          <SheetContent>
             <SheetHeader>
-              <div className="flex justify-end gap-2 mx-7 items-center">
-                <SheetTitle>{userData ? userData.name : "Guest"}</SheetTitle>
-                <SheetDescription></SheetDescription>
-                <img
-                  src={userData?.profile_url || profiles[0].image}
-                  alt="Profile"
-                  className="w-10 h-10 rounded-full cursor-pointer"
-                  onClick={() => navigate("/profile")}
-                />
+              <div className="flex justify-end gap-2 mx-7">
+                  <SheetTitle>{userData ? userData.name : "Guest"}</SheetTitle>
+                  <SheetDescription></SheetDescription>
+                  <img
+                      src={userData?.profile_url || profiles[0].image}
+                      alt="Profile"
+                      className="w-10 h-10 rounded-full cursor-pointer"
+                      onClick={() => navigate("/profile")}
+                    />
               </div>
             </SheetHeader>
-            <div className="flex flex-col gap-3 text-right px-6 keania medium underline">
+            <div className="flex flex-col gap-4 text-right px-6">
               {navItems.map((item) => (
-                <Link key={item.name} to={item.path}>
+                <Link
+                  key={item.name}
+                  to={item.path}
+                  className="text-lg font-medium text-foreground hover:text-primary"
+                >
                   {item.name}
                 </Link>
               ))}
             </div>
             <SheetFooter>
-              <Button
-                className="flex justify-end keania medium underline cursor-pointer"
-                onClick={handleLogout}
-              >
-                Log Out
-              </Button>
+              <Button className="flex justify-end">Log Out</Button>
             </SheetFooter>
           </SheetContent>
         </Sheet>
       </div>
-      <div className="children">
-        <div className="relative overflow-hidden">
-          <img
-            src={maskot}
-            alt="Maskot"
-            className="rounded-lg absolute maskot"
-          />
-          {children}
-        </div>
-      </div>
+      <div>a</div>
     </div>
   );
 }
