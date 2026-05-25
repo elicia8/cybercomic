@@ -7,6 +7,7 @@ import Login from "./Login";
 import Register from "./Register";
 import Tes from "./Tes";
 import Welcome from "./Welcome";
+import Subscription from "./Subscription";
 export default function App() {
   return (
     <BrowserRouter>
@@ -19,6 +20,7 @@ export default function App() {
         <Route path="/register" element={<Register />} />
         <Route path="/tes" element={<Tes />} />
         <Route path="/welcome" element={<Welcome />} />
+        <Route path="subscription" element={<Subscription/>} />
       </Routes>
     </BrowserRouter>
   );
