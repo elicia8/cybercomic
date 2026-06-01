@@ -4,9 +4,8 @@ import Layout from "./Layout";
 export default function Welcome() {
   return (
     <Layout>
-      <div className="relative overflow-hidden">
         <div className="relative h-[calc(100vh-4rem)] flex flex-col justify-center items-center gap-5">
-          <h1 className="xlarge font-bold">Welcome</h1>
+          <h1 className="xlarge font-bold text-glow">Welcome</h1>
           <Link to="/login" className="btn underline medium mt-12">
             Press to Start
           </Link>
@@ -19,7 +18,6 @@ export default function Welcome() {
               <span className="underline">Sign Up Now!</span>
             </Link>
           </div>
-        </div>
       </div>
     </Layout>
   );

@@ -48,7 +48,7 @@ export default function Register() {
   return (
     <Layout>
       {/* h-[calc(100vh-4rem)] awalnya ada ini di div bawah */}
-      <div className="flex justify-center items-center ">
+      <div className="flex justify-center items-center mb-10">
         <Card className="w-[40%] relative flex justify-center bg-[var(--bg-secondary)] p-4">
           <CardHeader>
             <CardTitle className="keania large">Register</CardTitle>

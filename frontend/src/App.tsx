@@ -8,6 +8,10 @@ import Register from "./Register";
 import Tes from "./Tes";
 import Welcome from "./Welcome";
 import Subscription from "./Subscription";
+import Professional from "./Professional";
+import Services from "./Services";
+import Leaderboard from "./Leaderboard";
+import Achievements from "./Achievements";
 export default function App() {
   return (
     <BrowserRouter>
@@ -20,7 +24,11 @@ export default function App() {
         <Route path="/register" element={<Register />} />
         <Route path="/tes" element={<Tes />} />
         <Route path="/welcome" element={<Welcome />} />
-        <Route path="subscription" element={<Subscription/>} />
+        <Route path="/subscription" element={<Subscription/>} />
+        <Route path="/professional" element={<Professional/>} />
+        <Route path="/services" element={<Services/>} />
+        <Route path="/leaderboard" element={<Leaderboard/>} />
+        <Route path="/achievements" element={<Achievements/>} />
       </Routes>
     </BrowserRouter>
   );

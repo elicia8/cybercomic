@@ -32,7 +32,7 @@ export default function Login() {
     }
 
     setLoading(false);
-    navigate("/");
+    navigate("/courses");
   }
 
   return (

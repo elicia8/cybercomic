@@ -1,39 +1,48 @@
 import { Button } from "@/components/ui/button";
-import {
-  Card,
-  CardDescription,
-  CardFooter,
-  CardHeader,
-  CardTitle,
-} from "@/components/ui/card";
 import Layout from "./Layout";
-import { useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 import { datas } from "./data/courseData.ts";
+import { useState } from "react";
 
 export default function Courses() {
-  const navigate = useNavigate();
   return (
     <Layout>
-      <div className="flex flex-col gap-6 relative">
-        {datas.map((data) => (
-          <Card size="sm" className="mx-auto w-full max-w-sm bg-[var(--bg-secondary)]" key={data.id}>
-            <CardHeader>
-              <CardTitle className="keania large">
-                Bab {data.id}: {data.title}
-              </CardTitle>
-              <CardDescription>{data.description}</CardDescription>
-            </CardHeader>
-            <CardFooter className="flex items-center justify-center">
-              <Button
-                className="btn cursor-pointer"
-                onClick={() => navigate(`/course/${data.id}`)}
-              >
-                Mulai Bab {data.id}
-              </Button>
-            </CardFooter>
-          </Card>
-        ))}
+      <div className="relative flex flex-col mt-10 gap-20 text-left px-15 h-auto">
+        <h1 className="xlarge">Courses</h1>
+        <div className="flex flex-wrap justify-start gap-20 relative">
+          {datas.map((data) => {
+            const [open, setOpen] = useState(false);
+            function handleClick() {
+              setOpen(!open);
+            }
+            return (
+              <div className={open ? "w-full flex items-center gap-4" : "w-40 h-40"}>
+                <div className="flex flex-col items-center gap-2">
+                  <Button
+                    className="w-40 h-40 btn2 flex items-center text-center cursor-pointer keania"
+                    key={data.id}
+                    onClick={handleClick}
+                  >
+                    <h1 className="keania px64">C{data.id}</h1>
+                  </Button>
+                  <Link to={`/course/${data.id}`} className={`${open ? "" : "hidden"} btn2 h-2 cursor-pointer text-center flex items-center justify-center`}>START</Link>
+                </div>
+                <div className="flex flex-col gap-4">
+                  <h2 className={`${open ? "px64 keania text-left" : "xsmall mono text-center"}`}>{data.title}</h2>
+                  <div className={open ? "" : "hidden"}>
+                    <ul>
+                      {data.descriptions.map((description) => (
+                        <li>- {description}</li>
+                      ))}
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            );
+          })}
+        </div>
       </div>
+      
     </Layout>
   );
 }

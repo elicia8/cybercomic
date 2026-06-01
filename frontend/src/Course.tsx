@@ -1,4 +1,4 @@
-import { useParams } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import Layout from "./Layout";
 import { datas } from "./data/courseData";
 export default function Course() {
@@ -7,10 +7,19 @@ export default function Course() {
   const course = datas.find((data) => data.id === idInt);
   return (
     <Layout>
-      <div className="relative flex flex-col gap-4">
-        <h1 className="large">Bab {id}: {course?.title}</h1>
-        <h3 className="medium">{course?.description}</h3>
-        <img src={course?.image} alt="panel komik bab 1" />
+      <div className="relative flex flex-col gap-10 items-center">
+        <Link to="/courses" className="btn cursor-pointer w-60 medium">
+          NEXT +5 pts
+        </Link>
+        <div className="relative flex flex-col gap-4 w-full">
+          <h1 className="px64">
+            Bab {id}: {course?.title}
+          </h1>
+          {/* {course?.descriptions.map((description) => (
+              <p className="medium">{description}</p>
+            ))} */}
+          <img src={course?.image} alt="panel komik bab 1" className="w-full" />
+        </div>
       </div>
     </Layout>
   );

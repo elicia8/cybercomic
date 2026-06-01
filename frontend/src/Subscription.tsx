@@ -1,4 +1,4 @@
-import { Card, CardContent, CardHeader, CardTitle } from "./components/ui/card";
+import { Button } from "./components/ui/button";
 import Layout from "./Layout";
 const subscriptions = [
   {
@@ -20,6 +20,7 @@ const subscriptions = [
         content: "No access to professional tutor",
       },
     ],
+    price: "FREE! Starts Now!",
   },
   {
     title: "Premium",
@@ -41,6 +42,7 @@ const subscriptions = [
         content: "Five times access to professional tutor (one hour/ each)",
       },
     ],
+    price: "6,500,000/Year"
   },
   {
     title: "Supreme",
@@ -66,6 +68,7 @@ const subscriptions = [
         content: "Ten times access to professional tutor (one hour/each)",
       },
     ],
+    price: "10,000,000/Lifetime",
   },
 ];
 
@@ -75,25 +78,27 @@ export default function Subscription() {
       <div className="flex flex-col justify-center items-center gap-20">
         <h1 className="xlarge relative mt-10">Subscription</h1>
         <div className="flex gap-4 mx-4">
-          {subscriptions.map((subscription) => (
-            <Card
-              className="relative flex gap-2 justify-center bg-[var(--bg-secondary)] p-4"
-              key={subscription.title}
-            >
-              <CardHeader>
-                <CardTitle className="keania large">
-                  {subscription.title}
-                </CardTitle>
-              </CardHeader>
-              <CardContent>
-                <ul className="flex flex-col gap-2 text-left">
-                  {subscription.description.map((desc) => (
-                    <li key={desc.content}>- {desc.content}</li>
-                  ))}
-                </ul>
-              </CardContent>
-            </Card>
-          ))}
+          <div
+            className="relative grid grid-cols-1 md:grid-cols-3
+    border-t-3 border-[var(--bg-accent)]
+    divide-y md:divide-y-0 md:divide-x-3
+    divide-[var(--bg-accent)]"
+          >
+            {subscriptions.map((subscription) => (
+              <div key={subscription.title} className="px-4 flex flex-col gap-3">
+                <h2 className="keania large text-left">{subscription.title}</h2>
+
+                <div className="h-95">
+                  <ul className="flex flex-col gap-2 text-left">
+                    {subscription.description.map((desc) => (
+                      <li key={desc.content}>- {desc.content}</li>
+                    ))}
+                  </ul>
+                </div>
+                <Button className="btn2 text-glow">{subscription.price}</Button>
+              </div>
+            ))}
+          </div>
         </div>
       </div>
     </Layout>

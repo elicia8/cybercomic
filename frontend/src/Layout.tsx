@@ -49,68 +49,79 @@ export default function Layout({ children }: { children: React.ReactNode }) {
   }
 
   return (
-    <div className="flex flex-col gap-4">
-      <div className="flex justify-end items-center gap-4">
-        <div className="flex flex-col text-right">
-          <h2>{userData ? userData.name : "Guest"}</h2>
-          {userData ? <p>UID: {userData.id}</p> : null}
-        </div>
-        <img
-          src={userData?.profile_url || profiles[0].image}
-          alt="Profile"
-          className="w-10 h-10 rounded-full cursor-pointer"
-          onClick={() => navigate("/profile")}
-        />
-        <Sheet>
-          <SheetTrigger asChild>
-            <Button className="cursor-pointer mr-4">
-              <Menu />
-            </Button>
-          </SheetTrigger>
-          <SheetContent
-            className="bg-[var(--bg-secondary)] border-l-[3rem] border-[var(--accent)]
-  shadow-[0_0_30px_var(--accent)]"
-          >
-            <SheetHeader>
-              <div className="flex justify-end gap-2 mx-7 items-center">
-                <SheetTitle>{userData ? userData.name : "Guest"}</SheetTitle>
-                <SheetDescription></SheetDescription>
-                <img
-                  src={userData?.profile_url || profiles[0].image}
-                  alt="Profile"
-                  className="w-10 h-10 rounded-full cursor-pointer"
-                  onClick={() => navigate("/profile")}
-                />
-              </div>
-            </SheetHeader>
-            <div className="flex flex-col gap-3 text-right px-6 keania medium underline">
-              {navItems.map((item) => (
-                <Link key={item.name} to={item.path}>
-                  {item.name}
-                </Link>
-              ))}
-            </div>
-            <SheetFooter>
-              <Button
-                className="flex justify-end keania medium underline cursor-pointer"
-                onClick={handleLogout}
-              >
-                Log Out
-              </Button>
-            </SheetFooter>
-          </SheetContent>
-        </Sheet>
-      </div>
-      <div className="children">
-        <div className="relative overflow-hidden">
+    <>
+      <div className="flex flex-col gap-4">
+        <div className="flex justify-end items-center gap-4">
+          <div className="flex flex-col text-right">
+            <h2 className="keania medium">
+              {userData ? userData.name : "Guest"}
+            </h2>
+            {userData ? <p>UID: {userData.id}</p> : null}
+          </div>
           <img
-            src={maskot}
-            alt="Maskot"
-            className="rounded-lg absolute maskot"
+            src={userData?.profile_url || profiles[0].image}
+            alt="Profile"
+            className="w-10 h-10 rounded-full cursor-pointer"
+            onClick={() => navigate("/profile")}
           />
-          {children}
+          <Sheet>
+            <SheetTrigger asChild>
+              <Button className="cursor-pointer mr-4">
+                <Menu />
+              </Button>
+            </SheetTrigger>
+            <SheetContent
+              className="bg-[var(--bg-secondary)] border-l-[3rem] border-[var(--accent)]
+  shadow-[0_0_30px_var(--accent)]"
+            >
+              <SheetHeader>
+                <div className="flex justify-end gap-2 mx-7 items-center">
+                  <SheetTitle className="keania medium">
+                    {userData ? userData.name : "Guest"}
+                  </SheetTitle>
+                  <SheetDescription></SheetDescription>
+                  <img
+                    src={userData?.profile_url || profiles[0].image}
+                    alt="Profile"
+                    className="w-10 h-10 rounded-full cursor-pointer"
+                    onClick={() => navigate("/profile")}
+                  />
+                </div>
+              </SheetHeader>
+              <div className="flex flex-col gap-3 text-right px-6 keania medium underline">
+                {navItems.map((item) => (
+                  <Link key={item.name} to={item.path}>
+                    {item.name}
+                  </Link>
+                ))}
+              </div>
+              <SheetFooter>
+                <Button
+                  className="flex justify-end keania medium underline cursor-pointer"
+                  onClick={handleLogout}
+                >
+                  Log Out
+                </Button>
+              </SheetFooter>
+            </SheetContent>
+          </Sheet>
         </div>
+        <div className="children">
+          <div className="relative">
+            <img
+              src={maskot}
+              alt="Maskot"
+              className="rounded-lg absolute maskot"
+            />
+            {children}
+          </div>
+        </div>
+        <footer className="text-left relative bg-[var(--bg-secondary)] text-[var(--accent)] border-t-2 border-[var(--accent)] px-4 py-4 flex gap-2 font-bold">
+          <p>Email: info@cybercomic.com</p>
+          <p>| Phone: +62 123 4567</p>
+          <p>| Address: Jl. Cyber Street No. 123, Jakarta</p>
+        </footer>
       </div>
-    </div>
+    </>
   );
 }
