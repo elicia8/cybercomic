@@ -1,5 +1,5 @@
 import Layout from "./Layout";
-
+import certificate from "./assets/certificate/certificate.png"
 export default function Certificates() {
     return (
         <Layout>
@@ -8,12 +8,7 @@ export default function Certificates() {
                 <p className="medium">
                     For finishing your course!!!
                 </p>
-                <ul className="small list-disc list-inside text-left btn">
-                    <li>Cyber Novice: Dapatkan setelah menyelesaikan kursus pertama Anda.</li>
-                    <li>Cyber Explorer: Dapatkan setelah menyelesaikan 5 kursus.</li>
-                    <li>Cyber Master: Dapatkan setelah menyelesaikan 10 kursus.</li>
-                    <li>Cyber Legend: Dapatkan setelah menyelesaikan semua kursus yang tersedia.</li>
-                </ul>
+                <img src={certificate} alt="certificate" className="text-glow"/>
             </div>
         </Layout>
     );
