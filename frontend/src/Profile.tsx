@@ -25,7 +25,7 @@ export default function Profile() {
   return (
     <Layout>
       <div className="flex flex-col relative h-[calc(100vh-4rem)] gap-2 items-center">
-        <h1 className="px64">User Profile</h1>
+        <h1 className="px64 text-glow">User Profile</h1>
         <h2 className="medium">Pilihlah avatar Anda</h2>
         <div className="flex flex-col flex-wrap sm:flex-row mt-5 justify-center items-center gap-6">
           {profiles.map((profile) => (

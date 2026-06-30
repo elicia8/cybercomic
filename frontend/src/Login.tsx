@@ -40,7 +40,7 @@ export default function Login() {
       <div className="flex justify-center items-center h-[calc(100vh-4rem)]">
         <Card className="w-[40%] relative flex justify-center bg-[var(--bg-secondary)] p-4">
           <CardHeader>
-            <CardTitle className="keania large">Login</CardTitle>
+            <CardTitle className="keania large text-glow">Login</CardTitle>
           </CardHeader>
           <CardContent>
             <form

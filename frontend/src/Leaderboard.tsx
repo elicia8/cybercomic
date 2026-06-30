@@ -9,7 +9,7 @@ export default function Leaderboard() {
   return (
     <Layout>
       <div className="relative flex flex-col gap-10 p-10 h-calc(100vh - 200px) justify-center">
-          <h1 className="px64">Leaderboard</h1>
+          <h1 className="px64 text-glow">Leaderboard</h1>
         <div className="flex flex-col gap-4">
             <p className="medium">
                 Berikut adalah daftar peringkat pengguna berdasarkan poin yang telah mereka kumpulkan melalui penyelesaian kursus di CyberComic:

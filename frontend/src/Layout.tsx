@@ -22,7 +22,7 @@ const navItems = [
   { name: "Log In", path: "/login" },
   { name: "Subscription", path: "/subscription" },
   { name: "Courses", path: "/courses" },
-  { name: "Achievements", path: "/achievements" },
+  { name: "Certificates", path: "/certificates" },
   { name: "Leaderboard", path: "/leaderboard" },
   { name: "Professional", path: "/professional" },
   { name: "Our Services", path: "/services" },

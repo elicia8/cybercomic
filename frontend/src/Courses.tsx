@@ -7,8 +7,8 @@ import { useState } from "react";
 export default function Courses() {
   return (
     <Layout>
-      <div className="relative flex flex-col mt-10 gap-20 text-left px-15 h-auto">
-        <h1 className="xlarge">Courses</h1>
+      <div className="relative flex flex-col mt-10 gap-20 text-left px-15">
+        <h1 className="xlarge text-glow">Courses</h1>
         <div className="flex flex-wrap justify-start gap-20 relative">
           {datas.map((data) => {
             const [open, setOpen] = useState(false);

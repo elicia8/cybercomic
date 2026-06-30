@@ -12,7 +12,7 @@ export default function Course() {
           NEXT +5 pts
         </Link>
         <div className="relative flex flex-col gap-4 w-full">
-          <h1 className="px64">
+          <h1 className="px64 text-glow">
             Bab {id}: {course?.title}
           </h1>
           {/* {course?.descriptions.map((description) => (

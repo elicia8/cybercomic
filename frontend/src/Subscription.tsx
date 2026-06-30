@@ -76,7 +76,7 @@ export default function Subscription() {
   return (
     <Layout>
       <div className="flex flex-col justify-center items-center gap-20">
-        <h1 className="xlarge relative mt-10">Subscription</h1>
+        <h1 className="xlarge relative mt-10 text-glow">Subscription</h1>
         <div className="flex gap-4 mx-4">
           <div
             className="relative grid grid-cols-1 md:grid-cols-3

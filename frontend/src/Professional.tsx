@@ -23,7 +23,7 @@ export default function Professional() {
   return (
     <Layout>
       <div className="relative flex flex-col justify-center items-center gap-10 p-4">
-        <h1 className="px64">Professional Tutors</h1>
+        <h1 className="px64 text-glow">Professional Tutors</h1>
         {professionalTutors.map((tutor) => (
           <div key={tutor.name} className="flex flex-col w-[85%]">
             <div className="text-left flex gap-5 btn2 text-glow">

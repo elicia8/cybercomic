@@ -51,7 +51,7 @@ export default function Register() {
       <div className="flex justify-center items-center mb-10">
         <Card className="w-[40%] relative flex justify-center bg-[var(--bg-secondary)] p-4">
           <CardHeader>
-            <CardTitle className="keania large">Register</CardTitle>
+            <CardTitle className="keania large text-glow">Register</CardTitle>
           </CardHeader>
           <CardContent>
             <form onSubmit={handleSubmit} className="flex flex-col gap-4 items-center">
